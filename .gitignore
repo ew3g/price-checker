@@ -1,3 +1,8 @@
+#
+credentials.json
+pck.json
+.vscode/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
