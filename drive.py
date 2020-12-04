@@ -5,6 +5,7 @@ from gspread.models import Spreadsheet
 import logging
 
 #https://gist.github.com/miohtama/f988a5a83a301dd27469
+#https://developers.google.com/drive/api/v3/search-files
 
 logger = logging.getLogger(__name__)
 
@@ -77,8 +78,38 @@ def create_google_spreadsheet(title: str, parent_folder_ids: list=None, share_do
             
 
     spread = open_google_spreadsheet(spread_id)
-
+    print(dir(drive_api.files().get()))
     return spread
 
+def create_folder(folder_name):
+    body = {
+        'title': folder_name,
+        'name': folder_name,
+        'mimeType': 'application/vnd.google-apps.folder'
+    }
+
+    credentials = get_credentials(['https://www.googleapis.com/auth/drive.file'])
+    drive_api = build('drive', 'v3', credentials=credentials)
+
+    created_folder_id = drive_api.files().create(body = body).execute()
+
+    user_permission = {
+        'type': 'user',
+        'role': 'writer',
+        'emailAddress': 'edilson.w3g@gmail.com'
+    }
+
+    #credentials = get_credentials(['https://www.googleapis.com/auth/drive.file'])
+    #drive_api = build('drive', 'v3', credentials=credentials)
+    drive_api.permissions().create(
+        fileId=created_folder_id.get('id'),
+        body=user_permission,
+        fields="id"
+    ).execute()
+
+    return created_folder_id
+
+#create_folder('teste')
 
 create_google_spreadsheet('d3kws')
+#print(create_folder('price_checker'))
