@@ -5,7 +5,7 @@ import sys
 
 configProperties = ConfigProperties()
 #scraper = Scraper()
-
+'''
 DRIVE_FOLDER_ID = configProperties.get_config_value('DRIVE_FOLDER_ID')
 folder = None
 if not DRIVE_FOLDER_ID:
@@ -18,6 +18,12 @@ if not DRIVE_FOLDER_ID:
         configProperties.save_config_value('DRIVE_FOLDER_ID', DRIVE_FOLDER_ID)
     else:
         sys.exit()
+
+'''
+for p in configProperties.get_all_products_configs():
+    print(p.name)
+    print(p.url)
+    print(p.spreadsheet_id)
 
 
 
