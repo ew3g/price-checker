@@ -24,8 +24,8 @@ if not DRIVE_FOLDER_ID:
 for p in configProperties.get_products():
     drive = Drive()
     #print(dir(drive.open_google_spreadsheet(p.spreadsheet_id).sheet1))
-    worksheet = drive.open_google_spreadsheet(p.spreadsheet_id)
-    #drive.next_available_row(worksheet)
+    worksheet = drive.open_google_spreadsheet(p.spreadsheet_id).sheet1
+    print(drive.next_available_row2(worksheet))
     #print(dir(worksheet))
     #print(worksheet.range('A1:A5'))
     if not p.spreadsheet_id:
