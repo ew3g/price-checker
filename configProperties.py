@@ -1,6 +1,12 @@
 from model.product import Product
+import configparser
 
 class ConfigProperties:
+    config = None
+
+    def __init__(self):
+        self.config = configparser.RawConfigParser() 
+        self.config.read('config/configurations.ini')
 
     def get_config_value(self, key):
         with open('config/config.properties') as f:
@@ -32,8 +38,33 @@ class ConfigProperties:
 
         return products_array
 
+    def update_products_config(self, product: Product):
+        with open('config/config.properties') as f:
+            for line in f:
+                 if "=" in line:
+                    name, value = line.split("=", 1)
+                    if name == product.name:
+                        line = product.name + '||||' + product.url + ';' + product.spreadsheet_id
+            f.close()
 
-#c = ConfigProperties()
+    def get_value(self, section, key):
+        return self.config[section][key]
+    
+    def save_value(self, section, key, value):
+        if section != 'DEFAULT':
+            if not self.config.has_section(section):
+                self.config.add_section(section)
+        #if not self.config.has_option(section, key):
+        self.config.set(section, key, value)
+        
+        ctg = open('config/configurations.ini', 'w')
+        self.config.write(ctg, space_around_delimiters=False)
+        ctg.close()
 
-#print(c.getValue('teste'))
-#c.save_config_value('teste3', '123445')
+    def get_products(self):
+        sections = self.config.sections()
+        products = []
+        for section in sections:
+            configs = dict(self.config.items(section))
+            products.append(Product(section, configs.get('url'), configs.get('spreadsheet.id')))
+        return products

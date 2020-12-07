@@ -1,9 +1,11 @@
+import sys
 class Product:
 
     def __init__(self, name, url, spreadsheet_id):
         self._name = name
         self._url = url
         self._spreadsheet_id = spreadsheet_id
+    
 
     @property
     def name(self):

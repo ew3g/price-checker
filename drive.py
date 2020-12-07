@@ -9,6 +9,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class Drive:
 
     def get_credentials(self, scopes: list) -> ServiceAccountCredentials:
@@ -73,13 +74,9 @@ class Drive:
             body=user_permission,
             fields="id"
         )
-        req2.execute()
-
-        
-                
+        req2.execute()    
 
         spread = self.open_google_spreadsheet(spread_id)
-        #print(dir(drive_api.files().get()))
         return spread
 
     def create_folder(self, folder_name):
@@ -109,3 +106,8 @@ class Drive:
         ).execute()
 
         return created_folder_id
+
+    def next_available_row(self, sheet):
+        # looks for empty row based on values appearing in 1st N columns
+        cols = sheet.range(1, 1, sheet.row_count, 1)
+        return max([cell.row for cell in cols if cell.value]) + 1
