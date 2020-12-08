@@ -1,4 +1,6 @@
 from model.product import Product
+from model.site import Site
+from model.siteType import SiteType
 import configparser
 
 class ConfigProperties:
@@ -6,7 +8,7 @@ class ConfigProperties:
 
     def __init__(self):
         self.config = configparser.RawConfigParser() 
-        self.config.read('config/configurations.ini')
+        self.config.read('config/configs.ini')
 
     def get_config_value(self, key):
         with open('config/config.properties') as f:
@@ -57,7 +59,7 @@ class ConfigProperties:
         #if not self.config.has_option(section, key):
         self.config.set(section, key, value)
         
-        ctg = open('config/configurations.ini', 'w')
+        ctg = open('config/configs.ini', 'w')
         self.config.write(ctg, space_around_delimiters=False)
         ctg.close()
 
@@ -68,5 +70,24 @@ class ConfigProperties:
             configs = dict(self.config.items(section))
             products.append(Product(section, configs.get('url'), configs.get('spreadsheet.id')))
         return products'''
+        sites_list = []
+        products = []
         for section in self.config.sections():
-            print(section)
+            #print(section)
+            configs = dict(self.config.items(section))
+            for c in configs:
+                #print(SiteType._value2member_map_)
+                key = c.upper()
+                if key in SiteType._value2member_map_:  # works
+                    site_type = SiteType(c.upper())
+                    site = Site(site_type, configs.get(c))
+                    sites_list.append(site)
+                #if c == SiteType.KABUM.name:
+                #    print(c + '=' + configs.get(c))
+            
+            products.append(Product(section,configs.get('spreadsheet.id'), sites_list))
+        return products
+        
+'''
+c = ConfigProperties()
+print(c.get_products()._sites_list)'''

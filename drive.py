@@ -48,12 +48,7 @@ class Drive:
         }
 
         if parent_folder_ids:
-            body["parents"] = [
-                {
-                    'kind': 'drive#fileLink',
-                    'id': parent_folder_ids
-                }
-            ]
+            body["parents"] = [parent_folder_ids]
 
         req = drive_api.files().create(body=body)
         new_sheet = req.execute()

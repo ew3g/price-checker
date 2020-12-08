@@ -1,10 +1,12 @@
 import sys
+from model.site import Site
+
 class Product:
 
-    def __init__(self, name, url, spreadsheet_id):
+    def __init__(self, name, spreadsheet_id, sites_list: Site):
         self._name = name
-        self._url = url
         self._spreadsheet_id = spreadsheet_id
+        self._sites_list = sites_list
     
 
     @property
@@ -31,5 +33,13 @@ class Product:
         return self._spreadsheet_id
 
     @spreadsheet_id.setter
-    def spreadsheet_id(self):
+    def spreadsheet_id(self, value):
         self._spreadsheet_id = value
+
+    @property
+    def sites_list(self):
+        return self._sites_list
+
+    @sites_list.setter
+    def sites_list(self, value):
+        self._sites_list = value
