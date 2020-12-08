@@ -62,9 +62,11 @@ class ConfigProperties:
         ctg.close()
 
     def get_products(self):
-        sections = self.config.sections()
+        '''sections = self.config.sections()
         products = []
         for section in sections:
             configs = dict(self.config.items(section))
             products.append(Product(section, configs.get('url'), configs.get('spreadsheet.id')))
-        return products
+        return products'''
+        for section in self.config.sections():
+            print(section)
