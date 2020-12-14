@@ -1,4 +1,6 @@
 from model.siteType import SiteType
+
+
 class Site:
 
     def __init__(self, site_type: SiteType, url):
@@ -11,7 +13,7 @@ class Site:
 
     @site_type.setter
     def site_type(self, value: SiteType):
-         self._site_type = value
+        self._site_type = value
 
     @property
     def url(self):
@@ -19,4 +21,4 @@ class Site:
 
     @url.setter
     def url(self, value):
-         self._url = value
+        self._url = value

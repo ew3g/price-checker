@@ -1,15 +1,15 @@
 # Price-Checker
 
-[Read in Portuguese](link)
-Price-Checker is a web crawler python script that scans products in websites and writes the prices on google spreadsheets in user's Google Drive
+[Read in English](link)
+Price-Checker é um script em Python que varre sites e produtos pré-configurados e grava o valor em planilhas google no drive do usuário parametrizado
 
-## Installation
-Use package manager [pip](https://pip.pypa.io/en/stable/) to install all needed libs
+## Instalação
+Utilize o package manager [pip](https://pip.pypa.io/en/stable/) para instalar todas as libs necessárias e depois execute:
 ```bash
 pip install -r requirements.txt
 ```
 
-Edit the file config/configs.ini and set a new config for each product you want to monitor. E.g.
+Edite o arquivo config/configs.ini e crie uma nova configuração para cada produto que quiser monitorar no seguinte exemplo:
 
 ```
 [NOME_PRODUTO/PRODUCT_NAME]
@@ -40,13 +40,13 @@ Edit the file config/email.properties and place the google mail in which the she
 google_mail=#insira seu email google aqui / place your google mail here
 ```
 
-Have a [Google Cloud Console](https://console.cloud.google.com) account
+Tenha uma conta no [Google Cloud Console](https://console.cloud.google.com)
 
-Create a project for price-checker on Google Cloud Console
+Crie um projeto para o price-checker no Google Cloud Console
 
-Create service account credential for the projects, instructions [here](https://cloud.google.com/iam/docs/creating-managing-service-account-keys)
+Crie credenciais de conta de serviço para o projeto, instruções neste [link](https://cloud.google.com/iam/docs/creating-managing-service-account-keys)
 
-Save the json(generated as below) on path config/keys/pck.json
+Salve o json(gerado como abaixo) no arquivo config/keys/pck.json
 ```
 {
   "type": "service_account",
@@ -61,19 +61,19 @@ Save the json(generated as below) on path config/keys/pck.json
   "client_x509_cert_url": "url-cert"
 }
 ```
-## Usage
+## Uso
 
 ```bash
 python main.py
 ```
 
-After running the script, go to [Shared With Me](https://drive.google.com/drive/shared-with-me) on Google Drive. The sheets with the data will be on folder price-checker
+Após executar o script, acessar [Compartilhados Comigo](https://drive.google.com/drive/shared-with-me) no Google Drive. As planilhas com os dados coletados estarão dentro da pasta price-checker.
 
-## Contributing
+## Contribuição
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## License
+## Licença
 [GNU GENERAL PUBLIC LICENSE](https://www.gnu.org/)
 
-## Thanking
-Source code for the :thanking: [Google Drive Integration on Python Gist](https://gist.github.com/miohtama/f988a5a83a301dd27469). Credits to [miohtama](https://gist.github.com/miohtama).
+## Agradecimentos
+Código fonte para :thanking: [Google Drive Integration on Python Gist](https://gist.github.com/miohtama/f988a5a83a301dd27469). Créditos para [miohtama](https://gist.github.com/miohtama).

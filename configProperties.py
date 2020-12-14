@@ -8,9 +8,9 @@ import configparser
 class ConfigProperties:
     config = None
 
-    def __init__(self):
+    def __init__(self, file_path):
         self.config = configparser.RawConfigParser() 
-        self.config.read(ConfigConstants.CONFIG_FILE_PATH)
+        self.config.read(file_path)
 
     def get_value(self, section, key):
         return self.config[section][key]

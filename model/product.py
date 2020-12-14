@@ -12,12 +12,9 @@ class Product:
     def name(self):
         return self._name
 
-
     @name.setter
     def name(self, value):
-         # este código é executado sempre que alguém fizer 
-         # self.nome = value
-         self._name = value
+        self._name = value
 
     @property
     def url(self):
