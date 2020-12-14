@@ -1,6 +1,8 @@
 #from scraper import Scraper
 from configProperties import ConfigProperties
 from drive import Drive
+from scraper import Scraper
+from datetime import datetime
 
 folder = None
 configProperties = ConfigProperties()
@@ -44,9 +46,23 @@ for product in configProperties.get_products():
                     last_cell = 'A' + str(last_row)
                     last_value_cell = worksheet.acell(last_cell).value
     
-                preco = buscaPreco()#aqui
-
-                if last_value_cell is not None:
-                    if last_value_cell != preco:
+                scraper = Scraper()
+                preco = scraper.get_product_price(site.url, site.site_type)
+                
+                preco_text = None
+                if preco is not None:
+                    preco_text = preco.get_text().strip()
+                # print('preco='+ preco)
+                # print('lastvaluecell='+last_value_cell) 
+                timestamp_cell_edit = 'B' + str(available_row)
+                print(preco_text)
+                if preco_text is not None:  
+                    if last_value_cell is not None:
+                        if last_value_cell != preco_text:
+                            cell_edit = 'A' + str(available_row)
+                            worksheet.update(cell_edit, preco_text)
+                            worksheet.update(timestamp_cell_edit, str(datetime.now()))
+                    else:
                         cell_edit = 'A' + str(available_row)
-                        worksheet.update(cell_edit, save)
+                        worksheet.update(cell_edit, preco_text)
+                        worksheet.update(timestamp_cell_edit, str(datetime.now()))

@@ -1,5 +1,5 @@
-import sys
 from model.site import Site
+
 
 class Product:
 
@@ -7,7 +7,6 @@ class Product:
         self._name = name
         self._spreadsheet_id = spreadsheet_id
         self._sites_list = sites_list
-    
 
     @property
     def name(self):
