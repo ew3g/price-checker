@@ -1,6 +1,6 @@
 # Price-Checker
 
-[Read in English](https://github.com/lukeSkywallk/price-checker/blob/develop/README.md)
+[Read in English](https://github.com/lukeSkywallk/price-checker/blob/develop/README.md)\
 Price-Checker é um script em Python que varre sites e produtos pré-configurados e grava o valor em planilhas google no drive do usuário parametrizado
 
 ## Instalação

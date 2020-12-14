@@ -1,6 +1,6 @@
 # Price-Checker
 
-[Read in Portuguese](https://github.com/lukeSkywallk/price-checker/blob/develop/README-pt.md).
+[Read in Portuguese](https://github.com/lukeSkywallk/price-checker/blob/develop/README-pt.md)\
 Price-Checker is a web crawler python script that scans products in websites and writes the prices on google spreadsheets in user's Google Drive.
 
 ## Installation
