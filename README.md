@@ -1,7 +1,7 @@
 # Price-Checker
 
-[Read in Portuguese](link)
-Price-Checker is a web crawler python script that scans products in websites and writes the prices on google spreadsheets in user's Google Drive
+[Read in Portuguese](https://github.com/lukeSkywallk/price-checker/blob/develop/README-pt.md).
+Price-Checker is a web crawler python script that scans products in websites and writes the prices on google spreadsheets in user's Google Drive.
 
 ## Installation
 Use package manager [pip](https://pip.pypa.io/en/stable/) to install all needed libs
@@ -76,4 +76,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 [GNU GENERAL PUBLIC LICENSE](https://www.gnu.org/)
 
 ## Thanking
-Source code for the :thanking: [Google Drive Integration on Python Gist](https://gist.github.com/miohtama/f988a5a83a301dd27469). Credits to [miohtama](https://gist.github.com/miohtama).
+Source code for the [Google Drive Integration on Python Gist](https://gist.github.com/miohtama/f988a5a83a301dd27469). Credits to [miohtama](https://gist.github.com/miohtama).

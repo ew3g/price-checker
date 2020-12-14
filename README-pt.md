@@ -1,6 +1,6 @@
 # Price-Checker
 
-[Read in English](link)
+[Read in English](https://github.com/lukeSkywallk/price-checker/blob/develop/README.md)
 Price-Checker é um script em Python que varre sites e produtos pré-configurados e grava o valor em planilhas google no drive do usuário parametrizado
 
 ## Instalação
@@ -76,4 +76,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 [GNU GENERAL PUBLIC LICENSE](https://www.gnu.org/)
 
 ## Agradecimentos
-Código fonte para :thanking: [Google Drive Integration on Python Gist](https://gist.github.com/miohtama/f988a5a83a301dd27469). Créditos para [miohtama](https://gist.github.com/miohtama).
+Código fonte para [Google Drive Integration on Python Gist](https://gist.github.com/miohtama/f988a5a83a301dd27469). Créditos para [miohtama](https://gist.github.com/miohtama).
