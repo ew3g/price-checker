@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from model.siteType import SiteType
 from fake_useragent import UserAgent
-from constants import StringConstants
+from constants.constants import StringConstants
 
 
 class Scraper:

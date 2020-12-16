@@ -1,7 +1,7 @@
 from model.product import Product
 from model.site import Site
 from model.siteType import SiteType
-from constants import ConfigConstants, FileConstants, StringConstants
+from constants.constants import ConfigConstants, FileConstants, StringConstants
 import configparser
 
 
@@ -21,7 +21,8 @@ class ConfigProperties:
                 self.config.add_section(section)
         self.config.set(section, key, value)
 
-        ctg = open(ConfigConstants.CONFIG_FILE_PATH, FileConstants)
+        ctg = open(ConfigConstants.CONFIG_FILE_PATH,
+                   FileConstants.WRITE_FILE_OPEN_MODE)
         self.config.write(ctg, space_around_delimiters=False)
         ctg.close()
 

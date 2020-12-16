@@ -56,6 +56,7 @@ class Drive:
 
         google_mail_address = ConfigProperties(
                     ConfigConstants.EMAIL_CONFIG_FILE_PATH).get_value(
+                        ConfigConstants.DEFAULT,
                         StringConstants.GOOGLE_MAIL)
 
         logger.info("Creating Sheet %s", title)
@@ -66,13 +67,13 @@ class Drive:
         }
 
         if parent_folder_ids:
-            body[StringConstants.parents] = [parent_folder_ids]
+            body[StringConstants.PARENTS] = [parent_folder_ids]
 
         req = drive_api.files().create(body=body)
         new_sheet = req.execute()
 
         # Get id of fresh sheet
-        spread_id = new_sheet[StringConstants.id]
+        spread_id = new_sheet[StringConstants.ID]
 
         user_permission = {
             StringConstants.TYPE: StringConstants.USER,
