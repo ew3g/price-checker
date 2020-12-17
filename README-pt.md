@@ -12,7 +12,7 @@ pip install -r requirements.txt
 Edite o arquivo config/configs.ini e crie uma nova configuração para cada produto que quiser monitorar no seguinte exemplo:
 
 ```
-[NOME_PRODUTO/PRODUCT_NAME]
+[NOME_PRODUTO]
 spreadsheet.id=LEAVE_BLANK
 kabum=PRODUCT_URL_KABUM
 terabyte=PRODUCT_URL_TERABYTE
