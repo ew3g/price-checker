@@ -105,7 +105,7 @@ class Drive:
 
         google_mail_address = ConfigProperties(
                     ConfigConstants.EMAIL_CONFIG_FILE_PATH).get_value(
-                        StringConstants.GOOGLE_MAIL)
+                        ConfigConstants.DEFAULT, StringConstants.GOOGLE_MAIL)
 
         created_folder_id = drive_api.files().create(body=body).execute()
 

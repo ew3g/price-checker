@@ -6,3 +6,4 @@ class SiteType(Enum):
     TERABYTE = 'TERABYTE'
     PICHAU = 'PICHAU'
     AMAZON = 'AMAZON'
+    CISSA_MAGAZINE = 'CISSA_MAGAZINE'
