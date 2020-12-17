@@ -16,6 +16,8 @@ class Scraper:
         soup = BeautifulSoup(page.content, "html5lib")
 
         price = None
+        if(site_type == SiteType.CISSA_MAGAZINE):
+            price = soup.find("span", {"class": "price-big"})
         if(site_type == SiteType.KABUM):
             price = soup.find("div", {"class": "preco_normal"})
         if(site_type == SiteType.TERABYTE):

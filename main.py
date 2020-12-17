@@ -44,7 +44,7 @@ for product in configProperties.get_products():
                         site.site_type.name)
                 except Exception:
                     worksheet = drive_spreadsheet.add_worksheet(
-                        site.site_type.name, 1000, 1000)
+                        site.site_type.name, 50, 50)
 
                 available_row = drive.next_available_row(worksheet)
                 last_row = int(available_row) - 1
